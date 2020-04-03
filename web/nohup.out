@@ -1,0 +1,5 @@
+[2019-12-12 19:19:11] INFO  WEBrick 1.6.0
+[2019-12-12 19:19:11] INFO  ruby 2.5.1 (2018-03-29) [x86_64-linux-gnu]
+[2019-12-12 19:19:11] INFO  WEBrick::HTTPServer#start: pid=51703 port=8080
+[2019-12-12 19:19:58] INFO  going to shutdown ...
+[2019-12-12 19:19:58] INFO  WEBrick::HTTPServer#start done.
