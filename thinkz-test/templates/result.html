@@ -1,0 +1,37 @@
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript"
+ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<!--
+<p>The result is {{result}} - SymPy</p>
+-->
+<div class="row">
+  <div class="col-6">
+    {% if not result2%}
+    <p> Write an equation, that will be the one that you want to solve. </p>
+     <br> 
+     <p>Then, click on 'Your task to solve' button.</p>
+    {% endif %}
+    <h6>{{result2}}</h6>
+  </div>
+  <div class="col-6">
+      <h3>Log of results</h3>
+      {% for el in numbers_so_far %}
+      <p>{{ el }}</p><br>
+      {% endfor %}
+  </div>
+</div>
+
+
+
+<!--
+<p><a href="/" onClick="clear()" >Click here to calculate again</a></p>
+-->

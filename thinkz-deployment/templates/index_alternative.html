@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({
+            config: ["MMLorHTML.js"],
+            jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+            extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+            TeX: {
+              extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+            }
+          });</script>
+        <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            window.MathJax = {
+                MathML: {
+                    extensions: ["mml3.js", "content-mathml.js"]
+                }
+            };
+        </script>
+                
+
+        <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script>
+        <script src="https://www.wiris.net/demo/hand/hand.js"></script>
+        <script src="{{ url_for('static',    filename='js/script.js') }}"></script>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mathjax.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles-index.css') }}">
+
+        <script>
+            function twoSolutions() {
+                if (document.getElementById('2solutions').checked) {
+                    document.getElementById('1stSol').style.display = 'block';
+                    document.getElementById('2ndSol').style.display = 'block';
+                }
+            }
+
+            function oneSolution() {
+                if (document.getElementById('1solution').checked) {
+                    document.getElementById('1stSol').style.display = 'block';
+                    document.getElementById('2ndSol').style.display = 'none';
+                }
+            }
+
+            function zeroSolution() {
+                if (document.getElementById('0solutions').checked) {
+                    document.getElementById('2ndSol').style.display = 'none';
+                    document.getElementById('1stSol').style.display = 'none';
+                }
+            }
+
+            function infinitySolution() {
+                if (document.getElementById('infinity').checked) {
+                    document.getElementById('2ndSol').style.display = 'none';
+                    document.getElementById('1stSol').style.display = 'none';
+                }
+            }
+        </script>
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.sketchable.memento.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.sketchable.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jsketch.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                      <div id="main-wrapper">
+                        <div id="main">
+                  
+                          <!-- show_start -->
+                          <!-- <div class="app eq">
+                            <div class="result" id="eq-render"><span class="MathJax_Preview" style="color: inherit; display: none;"></span>
+                              <script type="math/tex; mode=display" id="MathJax-Element-16">
+                              </script>
+                            </div>
+                            <div class="result" id="eq-latex">
+                            </div>
+                          </div> -->
+                          <!-- show_finish -->
+                  
+                          <!-- draw_start -->
+                          <div class="app draw">
+                            <canvas id="drawing-canvas" width=800 height=240></canvas>
+                            <div class="btn-group-vertical controls" role="group" aria-label="Basic example">
+                                <a href="#" id="clear" type="button" class="btn btn-primary">clear</a>
+                                <a href="#" id="undo" type="button" class="btn btn-secondary">undo</a>
+                                <a href="#" id="redo" type="button" class="btn btn-secondary">redo</a>
+                            </div>
+                          </div>
+                          <!-- draw_finish -->
+                    
+                        </div>
+                        <!--#main-->
+                      </div>
+                      <!--#main-wrapper-->
+                    
+                    
+                    
+                      <script type="text/javascript">
+                        var _gaq = _gaq || [];
+                        _gaq.push(['_setAccount', 'UA-25576819-2']);
+                        _gaq.push(['_trackPageview']);
+                    
+                        (function () {
+                          var ga = document.createElement('script');
+                          ga.type = 'text/javascript';
+                          ga.async = true;
+                          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+                            '.google-analytics.com/ga.js';
+                          var s = document.getElementsByTagName('script')[0];
+                          s.parentNode.insertBefore(ga, s);
+                        })();
+                      </script>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- <div id="handContainer">
+                    </div> -->
+                    <div class="row">
+                        <div class="col-3">
+                               
+                        </div>
+                        <div class="col-3">
+                                
+                        </div>
+                        <div class="col-3">
+                                <button id="send_equation3" class="btn btn-dark btn-block">Add solution (1)</button>
+                        </div>
+                        <div class="col-3">
+                                <button id="send_equation4" class="btn btn-dark btn-block">Add solution (2)</button>
+                        </div>
+                    </div>
+                        
+                    <!-- <button id="send_equation2" onclick="g();f()" class="btn btn-dark btn-block">Przeksztalc na LaTeX</button> -->
+                    <!-- <textarea id="result" rows="1" cols="1"></textarea> -->
+                    <div id="result2"></div>
+                </div>
+                <!-- <div class="col-6 d-flex justify-content-center align-items-center">
+                    <div id="equation" class="w-100 h-50"></div>
+                    <div id="equation2" class="w-100 h-50">
+                        <p></p>
+                    </div>
+                </div> -->
+            </div>
+
+                    <form action="{{ url_for('main') }}" method="POST">
+                        <!--
+                        <p>Wprowadz wyrazenia (SymPy):</p>
+                        <p><input name="number1" value=0 /></p>
+                        <p><input name="number2" value=0 /></p>
+                        -->
+                        <div class="row step-1">
+                            <div class="col-12">
+                                <h3>Write on the space above an equation, that you want to solve!</h3>
+                                <button id="send_equation" class="btn btn-dark btn-block">After that, click me.</button> 
+                            </div>
+                        </div>
+                        <div class="row step-2">
+                            <div class="col-12">
+                                <h4>Equation, that you want to solve, is:</h4> <br>
+                                <p><input name="eq_first" value={{eq_first_pure}} /></p> <br>
+                                <h4>What do you want to do next?</h4>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-secondary">Write a very next step</button>
+                                    <button type="button" class="btn btn-secondary">Write the solution</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row step-3">
+                            <h4>Write on the whiteboard a transformed equation.</h4>
+                            <p>
+                                This is what you wrote.
+                            </p>
+                            <p>
+                                <input name="eq_last" value="" />
+                            </p> 
+                            <p>
+                                If you agree with that...
+                            </p>
+                            <button id="send_equation2" class="btn btn-dark btn-block">
+                                Click me and check, if that's right!
+                            </button>
+                        </div>
+                        <div class="row step-4">
+                            <h3>First, choose how many solutions has your mathematicial problem...</h3>
+                            <div class="col">      
+                                <div>
+                                    <p>
+                                        1 solution
+                                    </p>  
+                                    <p><input type="radio" onclick="javascript:oneSolution();" name="yesno" id="1solution" checked></p>
+                                </div>    
+                                <div>
+                                    <p>
+                                        2 solutions
+                                    </p>
+                                     <p><input type="radio" onclick="javascript:twoSolutions();" name="yesno" id="2solutions"></p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <h5>Great. Now, write on the whiteboard numbers that represent your solution</h5>
+                                <div id="1stSol">
+                                    <h5>After you do that, click a button...</h5>
+                                    <p>
+                                        <input name="eq_final_1" id='eq_final_1' value="">
+                                    </p>
+                                </div>
+                                <div id="2ndSol" style="display:none">
+                                    <p>
+                                        <input name="eq_final_2" id='eq_final_2' value="">
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>        
+
+                        </div>
+                        <div class="special">
+                            <p><input type="submit" value="Check your math!!" /></p>
+                            <p><input name="action" type="submit" value="Start solving again!" onclick="again()"/></p>
+                        </div>
+                        <!-- <button id="send_equation"  class="btn btn-dark btn-block" name="action" type="submit" value="Wyczysc" onclick="f();g();">Dodaj nowe zadanie</button> -->
+                    </form>
+
+
+                        <!--0 rozwiązań-->
+                        <!--<input type="radio" onclick="javascript:zeroSolution();" name="yesno" id="0solutions">-->
+
+
+
+                        <!--Nieskończenie wiele rozwiązań-->
+                        <!--<input type="radio" onclick="javascript:infinitySolution()" name="yesno" id="infinity"><br>-->
+
+
+
+                    <!--
+                    <form method="POST">
+                         <div id="dynamicInput">
+                              Entry 1<br><input type="text" name="myInputs[]">
+                         </div>
+                         <input type="button" value="Dodaj pole" onClick="addInput('dynamicInput');">
+                    </form>
+                    -->
+                    <div class="col-12">
+                            {% include 'result.html' %}
+                        </div>
+        </div>
+
+        </div>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+    </body>
+    <script type="text/javascript">
+        MathJax.Hub.Configured()
+    </script>
+    <script>
+        // some movie data
+        var movies = {
+            'title': 1,
+            'release_date': 2
+            }
+
+        $.ajax({
+            url: Flask.url_for('main'),
+            type: 'POST',
+            data: JSON.stringify(movies),   // converts js value to JSON string
+            })
+            .done(function(result){     // on success get the return object from server
+                console.log(result)     // do whatever with it. In this case see it in console
+            })
+    </script>
+</html>

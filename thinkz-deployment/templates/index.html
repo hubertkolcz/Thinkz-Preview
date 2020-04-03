@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mathjax.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles-index.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.sketchable.memento.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.sketchable.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jsketch.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="https://www.wiris.net/demo/hand/hand.js"></script>
+    <script src="{{ url_for('static',    filename='js/script.js') }}"></script>
+    <script id="latex_script" type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+</head>
+
+<body>
+    <div id="paper">
+        <div id="pattern">
+            <div id="content">
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="main-wrapper">
+                    <!--start start-eq-->
+                    <div id="start-eq">
+                        <div class="row">
+                            <div class="col-2 d-flex justify-content-center align-items-center">
+                                <!-- <h6>Task to solve:</h6> -->
+                            </div>
+                            <div class="col-8">
+                                <div id="start-equation">
+                                    <div class="app draw">
+                                        <h6 id="i1" class="instruction">Write an equation, that you want to solve, on a
+                                            blue area.</h6>
+                                        <h6 id="i0" class="instruction">Click <b>START</b> to confirm your hand
+                                            writings, or <b>CLEAR</b> to correct them.</h6>
+                                        <h6 id="i4" class="instruction">Click <b>NEXT</b> or <b>CHECK</b> to confirm your hand
+                                            writings. Click <b>CLEAR</b> to correct them.</h6>
+                                        <h6 id="i2" class="instruction">Write a next step on a yellow area.<span
+                                                id="i3"> Otherwise, write an anser on a green area.</span></h6>
+                                        <h6 id="i5" class="instruction">After confirmation, 
+                                            you will see a tip whether your step was <span style="padding: 2px; background-color: rgba(0, 128, 0, 0.5);">correct</span> or <span style="padding: 2px; background-color: rgba(255, 0, 0, 0.5);">mistaken</span>.</h6>
+                                        <h6 id="i6" class="instruction">If you're not sure about the next step, use <span style="padding: 2px; background-color: #17a2b8; color: white;">NOTEPAD</span>. Also, you can start <span style="padding: 2px; background-color: #dc3545; color: white;" ><b>NEW TASK</b></span>.</h6>
+                                            <!-- <h6 id="i3" class="instruction">If you're sure, write an anser on a red area.</h6> -->
+                                        <div class="btn-group-vertical controls" role="group"
+                                            aria-label="Basic example">
+                                            <button id="send_equation" class="btn btn-primary btn-block">START</button>
+                                        </div>
+                                        <canvas id="drawing-canvas" width=600 height=102></canvas>
+                                        <div class="btn-group-vertical controls" id="clear1" role="group"
+                                            aria-label="Basic example">
+                                            <button id="clear" type="button"
+                                                class="btn btn-primary d-flex justify-content-center">CLEAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 d-flex justify-content-center align-items-center">
+                                <div id="eq-start">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end start-eq-->
+
+                    <!-- start #main-->
+                    <div id="main">
+                        <!-- draw_start -->
+                        <div class="row">
+                            <div class="col-2 d-flex justify-content-center align-items-center">
+                                <!-- <h6>Next steps:</h6> -->
+                            </div>
+                            <div class="col-8">
+                                <div class="app draw">
+                                    <!-- <h6 class="instruction">Next steps:</h6> -->
+                                    <div class="btn-group-vertical controls" role="group" aria-label="Basic example">
+                                        <button id="send_equation2"
+                                            class="test-button btn btn-warning btn-block">NEXT</button>
+                                    </div>
+                                    <canvas id="canvas-active" class="drawing-canvas-extend" width=600
+                                        height=100></canvas>
+                                    <div class="btn-group-vertical controls" role="group" aria-label="Basic example">
+                                        <button id="clear2" class="clear-button btn btn-warning">CLEAR</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div id="eq-extend">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- draw_finish -->
+                    </div>
+                    <!-- end #main-->
+
+                    <!-- start result-eq -->
+                    <div id="result-eq">
+                        <div class="row">
+                            <div class="col-2 d-flex justify-content-center align-items-center">
+                                <!-- <h6>Solution:</h6> -->
+                            </div>
+                            <div class="col-8">
+                                <div class="app draw">
+                                    <!-- <h6 class="instruction">Solution:</h6> -->
+                                    <div class="btn-group-vertical controls" role="group" aria-label="Basic example">
+                                        <button id="send_equation3"
+                                            class="test-button btn btn-success btn-block">CHECK</button>
+                                    </div>
+                                    <!-- <p><input type="submit" name="action" value="Check!" class="btn btn-dark btn-block w-100" /></p> -->
+                                    <canvas id="drawing-canvas3" width=600 height=100></canvas>
+                                    <div class="btn-group-vertical controls" role="group" aria-label="Basic example">
+                                        <button href="#" id="clear3" type="button"
+                                            class="btn btn-success d-flex justify-content-center">CLEAR</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 d-flex justify-content-center align-items-center">
+                                <div id="eq-end">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end result-eq -->
+
+                </div>
+                <!--#main-wrapper-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <a href="#" id="fixedbutton" class="btn btn-danger btn-block w-100"
+                            onClick="window.location.reload();"><b>NEW TASK</b>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <button id="fixedbutton2" type="button" class="btn btn-info btn-block w-100" data-toggle="modal" data-target="#exampleModal">
+                            NOTEPAD
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <canvas id="drawing-canvas4" width=500 height=802></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

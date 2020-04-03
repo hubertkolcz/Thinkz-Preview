@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-6">
+    {% if not result2%}
+    <p> Write an equation, that will be the one that you want to solve. </p>
+     <br> 
+     <p>Then, click on 'Your task to solve' button.</p>
+    {% endif %}
+    <h6>{{result2}}</h6>
+  </div>
+  <div class="col-6">
+      <h3>Log of results</h3>
+      {% for el in numbers_so_far %}
+      <p>{{ el }}</p><br>
+      {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mathjax.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles-index.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.sketchable.memento.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.sketchable.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jsketch.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="https://www.wiris.net/demo/hand/hand.js"></script>
+    <script src="{{ url_for('static',    filename='js/script.js') }}"></script>
+    <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="main-wrapper">
+                    <button id="test-button">Test button</button>
+                    <!--start start-euqation-->
+                    <div class="row">
+                        <div class="col-9">
+                            <div id="start-equation">
+                                <div class="app draw">
+                                    <canvas id="drawing-canvas" width=500 height=80></canvas>
+                                    <div class="btn-group-vertical controls" role="group" aria-label="Basic example">
+                                        <a href="#" id="clear" type="button" class="btn btn-primary d-flex justify-content-center" >clear</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 res-1">
+                            <div class="h-100">
+                                <div lang="latex">
+                                    {{eq_first_pure}}
+                                </div>
+                            </div>
+
+                            {% for el in equations_so_far %}
+                            <div class="h-100">
+                                <div lang="latex">
+                                    {{ el }}
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            <div id="eq">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--end start-equation-->
+
+                    <!-- start #main-->
+                    <div id="main">
+                        <!-- draw_start -->
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="app draw">
+                                    <canvas id="drawing-canvas2" width=500 height=80></canvas>
+                                    <div class="btn-group-vertical controls" role="group" aria-label="Basic example">
+                                        <a href="#" id="clear2" type="button" class="btn btn-dark d-flex justify-content-center" >clear</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-3 res-2">
+                                {% for eq in eq_list %}
+                                <div lang="latex">
+                                    {{eq}}
+                                </div>
+                                {% endfor %}
+                            </div> -->
+                        <!-- draw_finish -->
+                    </div>
+                    <!-- end #main-->
+                    <!-- start end-equation -->
+                    <div class="app draw">
+                        <canvas id="drawing-canvas3" width=500 height=80></canvas>
+                        <div class="btn-group-vertical controls" role="group" aria-label="Basic example">
+                            <a href="#" id="clear3" type="button" class="btn btn-danger d-flex justify-content-center" >clear</a>
+                        </div>
+                    </div>
+                    <!-- end end-equation -->
+                </div>
+                <!--#main-wrapper-->
+            </div>
+        </div>
+        <form action="{{ url_for('main') }}" method="POST">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-3">
+                            <button id="send_equation" class="btn btn-dark btn-block">Your task to solve</button>
+                            <p><input name="eq_first" value="{{eq_first_pure}}" class="w-100" /></p>
+                        </div>
+                        <div class="col-3">
+                            <button id="send_equation2" class="btn btn-dark btn-block">Next step to finish</button>
+                            <p><input name="eq_last" value="" class="w-100" /></p>
+                        </div>
+                        <div class="col-1">
+                            <p>How many solutions?</p>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="d-flex">
+                                    <p>
+                                        1
+                                    </p>
+                                    <p>
+                                        <input type="radio" onclick="javascript:oneSolution();" name="yesno" id="1solution"
+                                            checked>
+                                    </p>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <p>
+                                        2
+                                    </p>
+                                    <p>
+                                        <input type="radio" onclick="javascript:twoSolutions();" name="yesno" id="2solutions">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div id="1stSol">
+                                <a href="#" id="send_equation3" class="btn btn-dark btn-block">First solution</a>
+                                <p><input name="eq_final_1" id='eq_final_1' value="" class="w-100"><br></p>
+                            </div>
+                            <div id="2ndSol" style="display:none">
+                                <a href="#" id="send_equation4" class="btn btn-dark btn-block">Second solution</a>
+                                <p><input name="eq_final_2" id='eq_final_2' value="" class="w-100"><br></p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <p><input type="submit" name="action" value="Check!" class="btn btn-dark btn-block w-100" /></p>
+                            <p><input id="start_again" type="submit" name="action" value="Start again!" class="btn btn-dark btn-block w-100"/></p>
+                        </div>
+                    </div>
+                    <div id="result2"></div>
+                </div>
+            </div>
+
+        </form>
+        <div class="col-12">
+            {% include 'result.html' %}
+        </div>
+    </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+<script type="text/javascript">
+    MathJax.Hub.Configured()
+</script>
+
+</html>
