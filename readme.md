@@ -20,3 +20,8 @@ Hubert Kołcz - programista/wizjoner
 Damian Jaszewski,  Piotr Chodoła)
 ### Warunki licencyjne do oprogramowania wytworzonego przez grupę
 CC 3.0
+
+### Funkcjonalności:
+Aplikacja symulująca kartkę papieru, na której użytkownik rozwiązuje zadania matematyczne pod nadzorem wirtualnego korepetytora. System weryfikuje każdy krok, dając informacje czy to co użytkownik wpisał w następnym kroku jest równoważne do poprzedniego. Jeśli tak, pojawia się komunikat na zielono. Jeśli popełnił błąd - na czerwono. 
+Jeżeli użytkownik wpisze rozwiązanie poprawnie, zostanie o tym poinformowany.
+![img.png](img.png)
