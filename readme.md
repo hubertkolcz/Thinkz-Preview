@@ -21,7 +21,19 @@ Damian Jaszewski,  Piotr Chodoła)
 ### Warunki licencyjne do oprogramowania wytworzonego przez grupę
 CC 3.0
 
-### Funkcjonalności:
+### Architektura oprogramowania
+| Front-end                                                       | Back-end                          | Handwritten Text Recognition + Calculation                                  | Azure services                       |
+|-----------------------------------------------------------------|-----------------------------------|-----------------------------------------------------------------------------|--------------------------------------|
+| HTML5, Bootstrap (CSS framework), jQuery (JavaScript framework) | Flask (Python web framework), C++ | Seshat (HWR), C++ latex2sympy (parser, Python) SymPy (math library. Python) | Azure Virtual Machine (Ubuntu 18.04) |
+
+### Funkcjonalności prototypu:
 Aplikacja symulująca kartkę papieru, na której użytkownik rozwiązuje zadania matematyczne pod nadzorem wirtualnego korepetytora. System weryfikuje każdy krok, dając informacje czy to co użytkownik wpisał w następnym kroku jest równoważne do poprzedniego. Jeśli tak, pojawia się komunikat na zielono. Jeśli popełnił błąd - na czerwono. 
 Jeżeli użytkownik wpisze rozwiązanie poprawnie, zostanie o tym poinformowany.
+
+### Przykład użycia
+Obecnie moduł matematyczny działa bez konieczności korzystania z urządzenia zewnętrznego. Możliwe jest korzystanie z modułu bezpośrednio z komputera, tabletu lub telefonu komórkowego. Po przekierowaniu na stronę internetową, pierwszym krokiem jest zapisanie równania, które użytkownik chce rozwiązać, np.
+X^2 = x. Następnie użytkownik powinien wpisać kolejny krok, który prowadzi do rozwiązania równania. Na przykład, x^2 - x = 0.
+System rozpozna, że równania są równoważne i pozwoli użytkownikowi kontynuować rozwiązywanie zadania.
+problemu. (x-1)x=0 również zostanie rozpoznane jako poprawne przekształcenie. Jeśli użytkownik popełni błąd, na przykład, jeśli wprowadzi (x-1)x+1=0, zostanie o tym automatycznie poinformowany, tak aby można było szybko naprawić jego błąd. Jeśli użytkownik wpisze poprawny wynik w przeznaczonym do tego polu, np. jeśli wskaże, że x=1 i x=0 rozwiązują równanie, zostanie o tym powiadomiony. Alternatywnie, zostanie poinformowany o błędnych wynikach.
+
 ![img.png](img.png)
