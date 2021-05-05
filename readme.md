@@ -4,6 +4,8 @@
 Thinkz
 ### Nazwa pełna: 
 System wspierania edukacji szkolnej Thinkz.
+### Dokumentacja rozszerzona:
+Dostępna pod linkiem: https://github.com/hubertkolcz/Thinkz-Preview/blob/master/Thinkz%20-%20AIS%20-%20Documentation.pdf
 ### Krótki opis ze wskazaniem celów
 Nauka jest o wiele bardziej efektywna, gdy nauczyciel pracuje indywidualnie z uczniem. Prywatne korepetycje są jednak drogie i nie dla każdego są dostępne. W dużych klasach nauczyciele nie są w stanie skupić się na indywidualnych potrzebach każdego ucznia i trudno jest zapewnić indywidualny tok nauczania. Z drugiej strony, znaczna liczba uczniów nie może uczęszczać do standardowych szkół, ponieważ nie są one przystosowane do przyjmowania uczniów niepełnosprawnych.
 
