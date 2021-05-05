@@ -20,8 +20,30 @@ Hubert Kołcz - CC 3.0
 Hubert Kołcz - programista/wizjoner
 (w przeszłości: Mateusz Kusiak, Mateusz Łukasiński, Weronika Jóźwiak, 
 Damian Jaszewski,  Piotr Chodoła)
+
 ### Warunki licencyjne do oprogramowania wytworzonego przez grupę
 CC 3.0
+
+#### Wymagania funkcjonalne
+
+|Identyfikator|Nazwa krótka|      Opis   | Priorytet |
+|-------------|-----------|-------------|-------------|
+|1.| Sprawdzanie poprawności obliczeń | System weryfikuje obliczenia |1|
+|2.| Możliwość tworzenia notatek | Aplikacja umożliwia zapisywanie wyrażeń 'na brudno'.| 1 |
+|3.| Gumka | Użytkownik ma możliwość usuwania zapisywanych przez siebie wyrażeń | 1 |
+|4. | Przekształcanie zapisków odręcznych na postać LaTeX | Użytkownik, po wprowadzeniu wyrażenia odręcznie, otrzyma ją w postaci LaTeX | 2 |
+|5. | System podpowiedzi | System podpowiada, czy to co użytkownik wpisał jest poprawne, za pomocą koloowych monitów | 2|
+
+
+#### Wymagania niefunkcjonalne
+
+|Identyfikator| Nazwa krótka| Opis |Priorytet|
+|--------------|------------|------------|----------|
+|1.| Wieloplatformowość| Strona jest responsywna i umożliwia sprawdzenie funkcjonalności zarówno na ekranie telefonu, tabeltu i komputera | 3|
+|2.| Użyteczność | Interfejs jest intuicyjny |1|
+|3.| Bezpieczeństwo | Dane użytkownika nie są zapisywane |2|
+|4.| Dostępność | Dostęp do aplikacji w dowolnym momencie | 1|
+|5.| Wydajność | Szybkość reakcji aplikacji na zapytania | 1|
 
 ### Architektura oprogramowania
 | Front-end                                                       | Back-end                          | Handwritten Text Recognition + Calculation                                  | Azure services                       |
