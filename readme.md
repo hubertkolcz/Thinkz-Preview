@@ -14,7 +14,7 @@ Aby zmienić ten stan w aspekcie społecznym, powinno się znaleźć rozwiązani
 Propozycją rozwiązania, które spełnia wymienione kryteria i jest głównym tematem niniejszego dokumentu, jest system, który rozpoznaje i koryguje odręczne notatki w czasie rzeczywistym. Wskazuje on błędy użytkownika na ekranie urządzeń elektronicznych, wykorzystując zalety Internetu Rzeczy i rozwiązań chmury obliczeniowej.
 
 ### Prawa autorskie 
-Hubert Kołcz - CC 3.0
+Hubert Kołcz
 
 ### Autorzy
 Hubert Kołcz - programista/wizjoner
@@ -22,7 +22,7 @@ Hubert Kołcz - programista/wizjoner
 Damian Jaszewski,  Piotr Chodoła)
 
 ### Warunki licencyjne do oprogramowania wytworzonego przez grupę
-CC 3.0
+Default (zamknięte)
 
 #### Wymagania funkcjonalne
 
